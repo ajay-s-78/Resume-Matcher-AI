@@ -1,0 +1,8 @@
+Job Title: Web Developer
+
+We are hiring a Full Stack Web Developer.
+
+Requirements:
+- Strong experience in JavaScript, React, and Node.js.
+- Knowledge of SQL databases and RESTful API development.
+- Hands-on experience with Docker, Kubernetes, and Cloud platforms like Azure.

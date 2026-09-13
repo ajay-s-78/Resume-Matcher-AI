@@ -1,0 +1,10 @@
+Priya Sharma
+Full Stack Web Developer
+
+Summary:
+Enthusiastic Web Developer with expertise in building responsive web applications using modern JavaScript frameworks and backend REST APIs. Experienced with React, JavaScript, HTML, CSS, Node.js, and Git.
+
+Skills:
+- Frontend: JavaScript, TypeScript, React, HTML, CSS
+- Backend: Node.js, Express, SQL
+- DevOps: Git, Docker, Linux

@@ -1,0 +1,14 @@
+Job Title: Senior Data Scientist - AI Solutions
+
+We are seeking a talented Data Scientist to join our AI engineering team.
+
+Responsibilities:
+- Build and deploy machine learning and deep learning models for NLP applications.
+- Extract insights from complex datasets using Python, Pandas, and SQL.
+- Implement containerized microservices using Docker and FastAPI.
+- Deploy ML models onto AWS cloud infrastructure.
+
+Requirements:
+- Strong proficiency in Python, SQL, Pandas, and Scikit-learn.
+- Experience with Machine Learning, Deep Learning, and NLP models like BERT.
+- Experience with Docker, AWS, and Git for deployment and version control.

@@ -1,0 +1,48 @@
+skill,category
+Python,Programming
+Java,Programming
+C++,Programming
+JavaScript,Programming
+TypeScript,Programming
+Go,Programming
+Rust,Programming
+C#,Programming
+PHP,Programming
+Ruby,Programming
+SQL,Data
+Pandas,Data
+NumPy,Data
+Power BI,Data
+Tableau,Data
+Spark,Data
+Hadoop,Data
+Excel,Data
+Matplotlib,Data
+Seaborn,Data
+Machine Learning,Machine Learning
+Deep Learning,Machine Learning
+Scikit-learn,Machine Learning
+TensorFlow,Machine Learning
+PyTorch,Machine Learning
+Keras,Machine Learning
+NLP,Machine Learning
+Computer Vision,Machine Learning
+BERT,Machine Learning
+LLM,Machine Learning
+AWS,Cloud
+Azure,Cloud
+Google Cloud,Cloud
+GCP,Cloud
+Cloud Computing,Cloud
+Git,Tools
+Docker,Tools
+Kubernetes,Tools
+FastAPI,Tools
+Django,Tools
+Flask,Tools
+React,Tools
+Angular,Tools
+Node.js,Tools
+Linux,Tools
+CI/CD,Tools
+JIRA,Tools

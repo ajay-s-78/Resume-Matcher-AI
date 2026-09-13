@@ -1,0 +1,16 @@
+Ajay Kumar
+Data Scientist & AI Developer
+
+Summary:
+Experienced Data Scientist with 3+ years of hands-on experience in building machine learning models, natural language processing pipelines, and data analytics solutions. Skilled in Python, SQL, Pandas, NumPy, Scikit-learn, and Machine Learning. Passionate about leveraging BERT and transformer models for NLP tasks.
+
+Skills:
+- Programming: Python, SQL
+- Data Science: Pandas, NumPy, Scikit-learn, Matplotlib
+- AI/ML: Machine Learning, Deep Learning, NLP
+- Tools: Git, FastAPI
+
+Experience:
+- Developed predictive models using Scikit-learn and Pandas.
+- Built NLP text classification pipelines using BERT and Hugging Face.
+- Designed database queries in SQL for high-volume data analytics.

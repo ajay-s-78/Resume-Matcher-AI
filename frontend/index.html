@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Matcher AI - Powered by BERT</title>
+    <meta name="description" content="AI-Powered Resume & Job Description Matching using BERT embeddings, NLTK text preprocessing, and vector cosine similarity.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=2.0">
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand">
+                <div class="brand-icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                </div>
+                <span class="brand-name">Resume Matcher <span class="brand-accent">AI</span></span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#workspace" class="nav-link">Workspace</a>
+                <a href="#how-it-works" class="nav-link">How It Works</a>
+                <a href="#about" class="nav-link">About Model</a>
+                <a href="/docs" target="_blank" class="nav-link nav-docs">
+                    API Docs
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="nav-actions">
+                <span class="nav-badge">
+                    <span class="badge-dot"></span>
+                    Powered by BERT
+                </span>
+                <a href="#workspace" class="btn-nav">Analyze Resume</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="app-layout">
+        <!-- Hero Section -->
+        <header class="hero-section">
+            <div class="hero-content">
+                <div class="hero-pill">
+                    <span class="hero-sparkle">✨</span>
+                    <span>AI-Powered Semantic Intelligence</span>
+                </div>
+                <h1 class="hero-title">Find Your Perfect Job Match</h1>
+                <p class="hero-subtitle">
+                    Instantly compare candidate resumes against job descriptions using Hugging Face 
+                    <strong>BERT embeddings</strong>, extract key technical skills, and receive automated career insights.
+                </p>
+                <div class="hero-features">
+                    <div class="feature-chip">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <span>BERT Embeddings</span>
+                    </div>
+                    <div class="feature-chip">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                        <span>NLTK Skill Parser</span>
+                    </div>
+                    <div class="feature-chip">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <span>Actionable Feedback</span>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Workspace Section -->
+        <section id="workspace" class="workspace-section">
+            <!-- Candidate Info & Sample Bar -->
+            <div class="candidate-bar card">
+                <div class="candidate-input-group">
+                    <label for="candidateName" class="input-label">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        Candidate Name
+                    </label>
+                    <input 
+                        type="text" 
+                        id="candidateName" 
+                        class="form-input" 
+                        placeholder="Enter candidate's full name (e.g. Ajay)" 
+                        value="Ajay" 
+                        required
+                    >
+                </div>
+                <div class="sample-actions">
+                    <span class="sample-label">Quick Test:</span>
+                    <button type="button" id="loadSampleDataBtn" class="btn-sample">
+                        ⚡ Load Sample Data Scientist
+                    </button>
+                    <button type="button" id="loadSampleWebBtn" class="btn-sample btn-sample-secondary">
+                        🌐 Load Sample Web Developer
+                    </button>
+                </div>
+            </div>
+
+            <!-- Error Notification Banner -->
+            <div id="errorBanner" class="error-banner hidden" role="alert">
+                <div class="error-content">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                    <span id="errorMessage">Unable to connect to Resume Matcher API. Please ensure the FastAPI server is running.</span>
+                </div>
+            </div>
+
+            <!-- Input Cards Grid -->
+            <div class="input-grid">
+                <!-- Left Input Card: Resume -->
+                <div class="input-card card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="card-icon-badge resume-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <div>
+                                <h2>Candidate Resume</h2>
+                                <span class="card-subtitle">Paste candidate experience or skills</span>
+                            </div>
+                        </div>
+                        <button type="button" id="clearResumeBtn" class="btn-text-action">Clear</button>
+                    </div>
+                    <textarea 
+                        id="resumeText" 
+                        class="form-textarea" 
+                        placeholder="Paste the candidate's resume text here (e.g. Python, SQL, Pandas, Machine Learning...)" 
+                        rows="10" 
+                        required
+                    ></textarea>
+                </div>
+
+                <!-- Right Input Card: Job Description -->
+                <div class="input-card card">
+                    <div class="card-header">
+                        <div class="card-title-group">
+                            <div class="card-icon-badge job-badge">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                            </div>
+                            <div>
+                                <h2>Target Job Description</h2>
+                                <span class="card-subtitle">Paste job requirements or role details</span>
+                            </div>
+                        </div>
+                        <button type="button" id="clearJobBtn" class="btn-text-action">Clear</button>
+                    </div>
+                    <textarea 
+                        id="jobDescription" 
+                        class="form-textarea" 
+                        placeholder="Paste the target job description here (e.g. Looking for a Python developer with SQL, Machine Learning, AWS, Docker...)" 
+                        rows="10" 
+                        required
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Analyze CTA Button -->
+            <div class="action-bar">
+                <button type="button" id="matchBtn" class="btn-match-gradient">
+                    <span id="btnSpinner" class="spinner hidden"></span>
+                    <span id="btnText">Analyze Resume</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </button>
+            </div>
+
+            <!-- Pre-Submit Empty State Card -->
+            <div id="emptyState" class="empty-state-card card">
+                <div class="empty-icon-wrapper">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.5">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <circle cx="17" cy="17" r="3" fill="#eeeffe" stroke="#4f46e5" stroke-width="1.5"></circle>
+                    </svg>
+                </div>
+                <h3>Ready to Analyze Your Resume?</h3>
+                <p>Paste candidate skills and target job description above, then click <strong>Analyze Resume</strong> to compute real-time BERT semantic match scores.</p>
+            </div>
+
+            <!-- Results Dashboard Section (Hidden Initially) -->
+            <div id="resultSection" class="results-dashboard hidden">
+                <div class="results-header-bar">
+                    <div>
+                        <span class="results-pretitle">MATCHING ANALYSIS COMPLETE</span>
+                        <h2 class="results-main-title">Your Match Analysis</h2>
+                    </div>
+                    <div id="candidateDisplay" class="candidate-pill">Candidate: Ajay</div>
+                </div>
+
+                <!-- Match Score Visualization Card -->
+                <div class="score-visualization-card card">
+                    <div class="score-gauge-container">
+                        <svg class="score-gauge-svg" viewBox="0 0 140 140">
+                            <defs>
+                                <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#4f46e5" />
+                                    <stop offset="100%" stop-color="#7c3aed" />
+                                </linearGradient>
+                            </defs>
+                            <circle class="gauge-bg" cx="70" cy="70" r="58"></circle>
+                            <circle id="scoreRingProgress" class="gauge-progress" cx="70" cy="70" r="58"></circle>
+                        </svg>
+                        <div class="gauge-value-box">
+                            <span id="scoreValue" class="gauge-number">0%</span>
+                        </div>
+                    </div>
+
+                    <div class="score-details-content">
+                        <div class="score-badge-row">
+                            <span id="scoreCategory" class="score-category-badge">Match Score</span>
+                            <span class="tech-badge">BERT Vector Cosine Distance</span>
+                        </div>
+                        <p class="score-explanation">
+                            Calculated by transforming resume and job text into 384-dimensional dense vectors 
+                            using Hugging Face's <code>all-MiniLM-L6-v2</code> sentence transformer.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Skill Comparison Analysis Grid -->
+                <div class="skills-comparison-grid">
+                    <!-- Matched Skills Card -->
+                    <div class="skill-card card matched-skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-badge matched-badge-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                            </div>
+                            <div>
+                                <h3>Matched Skills</h3>
+                                <span class="skill-card-subtitle">Skills found in both resume & job</span>
+                            </div>
+                        </div>
+                        <div id="matchedSkillsList" class="skills-chip-container">
+                            <!-- Skill Badges -->
+                        </div>
+                    </div>
+
+                    <!-- Skills to Improve Card -->
+                    <div class="skill-card card missing-skill-card">
+                        <div class="skill-card-header">
+                            <div class="skill-icon-badge missing-badge-icon">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                            </div>
+                            <div>
+                                <h3>Skills to Improve</h3>
+                                <span class="skill-card-subtitle">Required skills missing from resume</span>
+                            </div>
+                        </div>
+                        <div id="missingSkillsList" class="skills-chip-container">
+                            <!-- Skill Badges -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Career Feedback Card -->
+                <div class="feedback-card card">
+                    <div class="feedback-card-header">
+                        <div class="feedback-icon-badge">
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 12.1"/><path d="m4.5 4.5 7.5 7.5"/></svg>
+                        </div>
+                        <div>
+                            <h3>AI Career Feedback</h3>
+                            <span class="feedback-subtitle">Automated improvement suggestions</span>
+                        </div>
+                    </div>
+                    <div class="feedback-content-box">
+                        <p id="feedbackText" class="feedback-text">
+                            <!-- Feedback Content -->
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How Resume Matcher Works Section -->
+        <section id="how-it-works" class="info-section">
+            <div class="section-header-center">
+                <span class="section-tag">WORKFLOW</span>
+                <h2 class="section-heading">How Resume Matcher Works</h2>
+                <p class="section-subheading">A four-step NLP pipeline transforming raw text into actionable career insights.</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card card">
+                    <span class="step-number">01</span>
+                    <h3>Upload Resume</h3>
+                    <p>Paste the candidate's technical resume or skills overview into the workspace.</p>
+                </div>
+                <div class="step-card card">
+                    <span class="step-number">02</span>
+                    <h3>Add Job Requirements</h3>
+                    <p>Input the target job description and key technical qualifications.</p>
+                </div>
+                <div class="step-card card">
+                    <span class="step-number">03</span>
+                    <h3>AI Semantic Matching</h3>
+                    <p>Sentence-Transformers convert both texts into dense vector embeddings and measure similarity.</p>
+                </div>
+                <div class="step-card card">
+                    <span class="step-number">04</span>
+                    <h3>Get Insights</h3>
+                    <p>View matched skills, missing skill gaps, and tailored career development feedback.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Tech Stack Section -->
+        <section id="about" class="info-section">
+            <div class="section-header-center">
+                <span class="section-tag">ARCHITECTURE</span>
+                <h2 class="section-heading">Powered by Modern NLP & AI</h2>
+                <p class="section-subheading">Built with industry-standard open-source machine learning frameworks.</p>
+            </div>
+
+            <div class="tech-grid">
+                <div class="tech-card card">
+                    <div class="tech-icon-box">🤖</div>
+                    <h3>Sentence Transformers</h3>
+                    <p>Uses Hugging Face's <code>all-MiniLM-L6-v2</code> pre-trained BERT model to generate rich 384-dimensional semantic embeddings.</p>
+                </div>
+                <div class="tech-card card">
+                    <div class="tech-icon-box">🔤</div>
+                    <h3>NLTK Preprocessing</h3>
+                    <p>Cleans, lowercases, tokenizes, and removes noise/stopwords from text inputs prior to vectorization.</p>
+                </div>
+                <div class="tech-card card">
+                    <div class="tech-icon-box">📐</div>
+                    <h3>Cosine Similarity</h3>
+                    <p>Computes mathematical vector distances between candidate profile and job requirements to calculate accurate match percentages.</p>
+                </div>
+                <div class="tech-card card">
+                    <div class="tech-icon-box">🔍</div>
+                    <h3>Skill Matcher Engine</h3>
+                    <p>Parses technical competencies against a curated dataset (`skills.csv`) to highlight matched and missing skills.</p>
+                </div>
+                <div class="tech-card card">
+                    <div class="tech-icon-box">⚡</div>
+                    <h3>FastAPI Backend</h3>
+                    <p>High-performance asynchronous Python API with Pydantic validation, CORS middleware, and static file serving.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <span class="footer-title">Resume Matcher AI</span>
+                    <p class="footer-desc">AI-powered semantic resume matching using BERT embeddings and NLTK skill analysis.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h4>Navigation</h4>
+                        <a href="#workspace">Workspace</a>
+                        <a href="#how-it-works">How It Works</a>
+                        <a href="#about">About Model</a>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Developer</h4>
+                        <a href="/docs" target="_blank">FastAPI Docs</a>
+                        <a href="/health" target="_blank">Health Status</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Resume Matcher AI. Built with FastAPI & Hugging Face Transformers.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="script.js?v=2.0"></script>
+</body>
+
+</html>
