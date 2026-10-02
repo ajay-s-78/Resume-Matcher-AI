@@ -3,23 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume Matcher AI - Powered by BERT</title>
+    <title>Resume Matcher AI — Luxury Career Intelligence Platform</title>
     <meta name="description" content="AI-Powered Resume & Job Description Matching using BERT embeddings, NLTK text preprocessing, and vector cosine similarity.">
-    <!-- Google Fonts -->
+    <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=2.0">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=3.0">
 </head>
 
 <body>
-    <!-- Navbar -->
+    <!-- Background Ambient Glows & Grid Layer -->
+    <div class="bg-layer" aria-hidden="true">
+        <div class="glow-orb orb-primary"></div>
+        <div class="glow-orb orb-secondary"></div>
+        <div class="glow-orb orb-gold"></div>
+        <div class="bg-grid-pattern"></div>
+    </div>
+
+    <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="nav-brand">
                 <div class="brand-icon">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 19 21 12 17 5 21 12 2"></polygon>
                     </svg>
                 </div>
                 <span class="brand-name">Resume Matcher <span class="brand-accent">AI</span></span>
@@ -31,7 +39,7 @@
                 <a href="#about" class="nav-link">About Model</a>
                 <a href="/docs" target="_blank" class="nav-link nav-docs">
                     API Docs
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
                         <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
                         <polyline points="15 3 21 3 21 9"></polyline>
                         <line x1="10" y1="14" x2="21" y2="3"></line>
@@ -49,31 +57,33 @@
         </div>
     </nav>
 
-    <!-- Main Container -->
+    <!-- Main Application Wrapper -->
     <div class="app-layout">
         <!-- Hero Section -->
         <header class="hero-section">
             <div class="hero-content">
                 <div class="hero-pill">
-                    <span class="hero-sparkle">✨</span>
-                    <span>AI-Powered Semantic Intelligence</span>
+                    <span class="hero-sparkle">✦</span>
+                    <span>AI-POWERED CAREER INTELLIGENCE</span>
                 </div>
-                <h1 class="hero-title">Find Your Perfect Job Match</h1>
+                <h1 class="hero-title">
+                    Find Your Perfect <span class="hero-title-gradient">Job Match</span>
+                </h1>
                 <p class="hero-subtitle">
-                    Instantly compare candidate resumes against job descriptions using Hugging Face 
+                    Compare candidate resumes against target roles using Hugging Face 
                     <strong>BERT embeddings</strong>, extract key technical skills, and receive automated career insights.
                 </p>
                 <div class="hero-features">
                     <div class="feature-chip">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
                         <span>BERT Embeddings</span>
                     </div>
                     <div class="feature-chip">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
                         <span>NLTK Skill Parser</span>
                     </div>
                     <div class="feature-chip">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         <span>Actionable Feedback</span>
                     </div>
                 </div>
@@ -82,30 +92,39 @@
 
         <!-- Workspace Section -->
         <section id="workspace" class="workspace-section">
-            <!-- Candidate Info & Sample Bar -->
+            <div class="workspace-header">
+                <span class="workspace-tag">AI MATCHING WORKSPACE</span>
+                <h2 class="workspace-heading">Semantic Analysis Console</h2>
+            </div>
+
+            <!-- Candidate Profile & Quick Test Bar -->
             <div class="candidate-bar card">
-                <div class="candidate-input-group">
-                    <label for="candidateName" class="input-label">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                        Candidate Name
-                    </label>
-                    <input 
-                        type="text" 
-                        id="candidateName" 
-                        class="form-input" 
-                        placeholder="Enter candidate's full name (e.g. Ajay)" 
-                        value="Ajay" 
-                        required
-                    >
+                <div class="candidate-bar-header">
+                    <span class="candidate-section-label">CANDIDATE PROFILE</span>
                 </div>
-                <div class="sample-actions">
-                    <span class="sample-label">Quick Test:</span>
-                    <button type="button" id="loadSampleDataBtn" class="btn-sample">
-                        ⚡ Load Sample Data Scientist
-                    </button>
-                    <button type="button" id="loadSampleWebBtn" class="btn-sample btn-sample-secondary">
-                        🌐 Load Sample Web Developer
-                    </button>
+                <div class="candidate-bar-content">
+                    <div class="candidate-input-group">
+                        <div class="input-icon-wrapper">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                        </div>
+                        <input 
+                            type="text" 
+                            id="candidateName" 
+                            class="form-input" 
+                            placeholder="Enter candidate's full name (e.g. Ajay)" 
+                            value="Ajay" 
+                            required
+                        >
+                    </div>
+                    <div class="sample-actions">
+                        <span class="sample-label">Quick Test:</span>
+                        <button type="button" id="loadSampleDataBtn" class="btn-sample">
+                            ⚡ Sample Data Scientist
+                        </button>
+                        <button type="button" id="loadSampleWebBtn" class="btn-sample btn-sample-secondary">
+                            🌐 Sample Web Developer
+                        </button>
+                    </div>
                 </div>
             </div>
 
@@ -117,18 +136,18 @@
                 </div>
             </div>
 
-            <!-- Input Cards Grid -->
+            <!-- Dual-Panel Input Grid -->
             <div class="input-grid">
-                <!-- Left Input Card: Resume -->
+                <!-- Left Panel: Resume -->
                 <div class="input-card card">
                     <div class="card-header">
                         <div class="card-title-group">
                             <div class="card-icon-badge resume-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
                             </div>
                             <div>
                                 <h2>Candidate Resume</h2>
-                                <span class="card-subtitle">Paste candidate experience or skills</span>
+                                <span class="card-subtitle">Paste experience or skills overview</span>
                             </div>
                         </div>
                         <button type="button" id="clearResumeBtn" class="btn-text-action">Clear</button>
@@ -136,22 +155,27 @@
                     <textarea 
                         id="resumeText" 
                         class="form-textarea" 
-                        placeholder="Paste the candidate's resume text here (e.g. Python, SQL, Pandas, Machine Learning...)" 
+                        placeholder="Paste candidate resume text here (e.g. Python, SQL, Pandas, Machine Learning...)" 
                         rows="10" 
                         required
                     ></textarea>
                 </div>
 
-                <!-- Right Input Card: Job Description -->
+                <!-- Center VS Divider -->
+                <div class="vs-divider" aria-hidden="true">
+                    <span class="vs-badge">VS</span>
+                </div>
+
+                <!-- Right Panel: Job Description -->
                 <div class="input-card card">
                     <div class="card-header">
                         <div class="card-title-group">
                             <div class="card-icon-badge job-badge">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
                             </div>
                             <div>
                                 <h2>Target Job Description</h2>
-                                <span class="card-subtitle">Paste job requirements or role details</span>
+                                <span class="card-subtitle">Paste role requirements or qualification details</span>
                             </div>
                         </div>
                         <button type="button" id="clearJobBtn" class="btn-text-action">Clear</button>
@@ -159,14 +183,14 @@
                     <textarea 
                         id="jobDescription" 
                         class="form-textarea" 
-                        placeholder="Paste the target job description here (e.g. Looking for a Python developer with SQL, Machine Learning, AWS, Docker...)" 
+                        placeholder="Paste target job description here (e.g. Looking for a Python developer with SQL, Machine Learning, AWS, Docker...)" 
                         rows="10" 
                         required
                     ></textarea>
                 </div>
             </div>
 
-            <!-- Analyze CTA Button -->
+            <!-- Analyze CTA Action Bar -->
             <div class="action-bar">
                 <button type="button" id="matchBtn" class="btn-match-gradient">
                     <span id="btnSpinner" class="spinner hidden"></span>
@@ -178,16 +202,12 @@
             <!-- Pre-Submit Empty State Card -->
             <div id="emptyState" class="empty-state-card card">
                 <div class="empty-icon-wrapper">
-                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="1.5">
-                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                        <polyline points="14 2 14 8 20 8"></polyline>
-                        <line x1="16" y1="13" x2="8" y2="13"></line>
-                        <line x1="16" y1="17" x2="8" y2="17"></line>
-                        <circle cx="17" cy="17" r="3" fill="#eeeffe" stroke="#4f46e5" stroke-width="1.5"></circle>
+                    <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                     </svg>
                 </div>
-                <h3>Ready to Analyze Your Resume?</h3>
-                <p>Paste candidate skills and target job description above, then click <strong>Analyze Resume</strong> to compute real-time BERT semantic match scores.</p>
+                <h3>Ready to Compute Semantic Match?</h3>
+                <p>Input the candidate details and target job description above, then click <strong>Analyze Resume</strong> to compute real-time BERT vector distance & skill breakdown.</p>
             </div>
 
             <!-- Results Dashboard Section (Hidden Initially) -->
@@ -195,7 +215,7 @@
                 <div class="results-header-bar">
                     <div>
                         <span class="results-pretitle">MATCHING ANALYSIS COMPLETE</span>
-                        <h2 class="results-main-title">Your Match Analysis</h2>
+                        <h2 class="results-main-title">AI Match Intelligence Report</h2>
                     </div>
                     <div id="candidateDisplay" class="candidate-pill">Candidate: Ajay</div>
                 </div>
@@ -206,8 +226,8 @@
                         <svg class="score-gauge-svg" viewBox="0 0 140 140">
                             <defs>
                                 <linearGradient id="scoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                    <stop offset="0%" stop-color="#4f46e5" />
-                                    <stop offset="100%" stop-color="#7c3aed" />
+                                    <stop offset="0%" stop-color="#6366f1" />
+                                    <stop offset="100%" stop-color="#8b5cf6" />
                                 </linearGradient>
                             </defs>
                             <circle class="gauge-bg" cx="70" cy="70" r="58"></circle>
@@ -224,8 +244,8 @@
                             <span class="tech-badge">BERT Vector Cosine Distance</span>
                         </div>
                         <p class="score-explanation">
-                            Calculated by transforming resume and job text into 384-dimensional dense vectors 
-                            using Hugging Face's <code>all-MiniLM-L6-v2</code> sentence transformer.
+                            Calculated by transforming candidate resume and job description into 384-dimensional dense vectors 
+                            using Hugging Face's <code>all-MiniLM-L6-v2</code> sentence transformer model.
                         </p>
                     </div>
                 </div>
@@ -240,7 +260,7 @@
                             </div>
                             <div>
                                 <h3>Matched Skills</h3>
-                                <span class="skill-card-subtitle">Skills found in both resume & job</span>
+                                <span class="skill-card-subtitle">Competencies identified in both profile & role</span>
                             </div>
                         </div>
                         <div id="matchedSkillsList" class="skills-chip-container">
@@ -256,7 +276,7 @@
                             </div>
                             <div>
                                 <h3>Skills to Improve</h3>
-                                <span class="skill-card-subtitle">Required skills missing from resume</span>
+                                <span class="skill-card-subtitle">Required role qualifications missing from resume</span>
                             </div>
                         </div>
                         <div id="missingSkillsList" class="skills-chip-container">
@@ -269,11 +289,11 @@
                 <div class="feedback-card card">
                     <div class="feedback-card-header">
                         <div class="feedback-icon-badge">
-                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10H12V2z"/><path d="M12 12 2.1 12.1"/><path d="m4.5 4.5 7.5 7.5"/></svg>
+                            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         </div>
                         <div>
                             <h3>AI Career Feedback</h3>
-                            <span class="feedback-subtitle">Automated improvement suggestions</span>
+                            <span class="feedback-subtitle">Automated improvement recommendations</span>
                         </div>
                     </div>
                     <div class="feedback-content-box">
@@ -295,22 +315,22 @@
 
             <div class="steps-grid">
                 <div class="step-card card">
-                    <span class="step-number">01</span>
+                    <div class="step-number-badge">01</div>
                     <h3>Upload Resume</h3>
-                    <p>Paste the candidate's technical resume or skills overview into the workspace.</p>
+                    <p>Paste the candidate's technical resume or skills overview into the workspace console.</p>
                 </div>
                 <div class="step-card card">
-                    <span class="step-number">02</span>
+                    <div class="step-number-badge">02</div>
                     <h3>Add Job Requirements</h3>
-                    <p>Input the target job description and key technical qualifications.</p>
+                    <p>Input the target job description and key technical qualifications for the position.</p>
                 </div>
                 <div class="step-card card">
-                    <span class="step-number">03</span>
+                    <div class="step-number-badge">03</div>
                     <h3>AI Semantic Matching</h3>
-                    <p>Sentence-Transformers convert both texts into dense vector embeddings and measure similarity.</p>
+                    <p>Sentence-Transformers convert both texts into dense vector embeddings and measure cosine similarity.</p>
                 </div>
                 <div class="step-card card">
-                    <span class="step-number">04</span>
+                    <div class="step-number-badge">04</div>
                     <h3>Get Insights</h3>
                     <p>View matched skills, missing skill gaps, and tailored career development feedback.</p>
                 </div>
@@ -344,7 +364,7 @@
                 <div class="tech-card card">
                     <div class="tech-icon-box">🔍</div>
                     <h3>Skill Matcher Engine</h3>
-                    <p>Parses technical competencies against a curated dataset (`skills.csv`) to highlight matched and missing skills.</p>
+                    <p>Parses technical competencies against a curated dataset (<code>skills.csv</code>) to highlight matched and missing skills.</p>
                 </div>
                 <div class="tech-card card">
                     <div class="tech-icon-box">⚡</div>
@@ -381,7 +401,6 @@
         </footer>
     </div>
 
-    <script src="script.js?v=2.0"></script>
+    <script src="script.js?v=3.0"></script>
 </body>
-
 </html>
