@@ -1,6 +1,6 @@
 import os
 import logging
-import pandas as pd
+import csv
 import nltk
 
 logger = logging.getLogger(__name__)
@@ -37,11 +37,17 @@ def load_skills_from_csv(csv_path: str) -> list:
         ]
     
     try:
-        df = pd.read_csv(csv_path)
-        if 'skill' in df.columns:
-            skills = df['skill'].dropna().astype(str).str.strip().tolist()
+        skills = []
+        with open(csv_path, mode='r', encoding='utf-8') as f:
+            reader = csv.DictReader(f)
+            for row in reader:
+                skill_val = row.get('skill')
+                if skill_val and str(skill_val).strip():
+                    skills.append(str(skill_val).strip())
+        if skills:
             return sorted(list(set(skills)), key=len, reverse=True)
     except Exception as e:
         logger.error(f"Error reading skills CSV at {csv_path}: {e}")
         
     return []
+

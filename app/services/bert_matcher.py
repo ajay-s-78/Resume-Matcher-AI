@@ -1,9 +1,13 @@
 import logging
+import torch
 from sentence_transformers import SentenceTransformer, util
 from app.config import MODEL_NAME
 from app.services.text_preprocessor import TextPreprocessor
 
 logger = logging.getLogger(__name__)
+
+# Enforce PyTorch single thread limit
+torch.set_num_threads(1)
 
 class BertMatcherService:
     """
@@ -47,16 +51,15 @@ class BertMatcherService:
         if not clean_resume or not clean_job:
             return 0.0
 
-        # Step 4: Generate embeddings
-        embeddings = self.model.encode([clean_resume, clean_job], convert_to_tensor=True)
-
-        # Step 5: Cosine similarity calculation
-        similarity_tensor = util.cos_sim(embeddings[0], embeddings[1])
-        raw_score = float(similarity_tensor[0][0].cpu().item())
+        # Step 4 & 5: Generate embeddings and calculate similarity safely in inference_mode
+        with torch.inference_mode():
+            embeddings = self.model.encode([clean_resume, clean_job], convert_to_tensor=True)
+            similarity_tensor = util.cos_sim(embeddings[0], embeddings[1])
+            raw_score = float(similarity_tensor[0][0].cpu().item())
 
         # Step 6: Convert to percentage score (0 to 100)
-        # Cosine similarity range is -1 to 1; for semantic embeddings it's generally > 0.
         score_percentage = max(0.0, min(100.0, raw_score * 100.0))
 
         # Step 7: Return rounded match score
         return round(score_percentage, 1)
+
